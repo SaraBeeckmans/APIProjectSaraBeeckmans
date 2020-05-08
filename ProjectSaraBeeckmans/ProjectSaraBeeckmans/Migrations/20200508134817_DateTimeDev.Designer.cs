@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectSaraBeeckmans.Data;
 
 namespace ProjectSaraBeeckmans.Migrations
 {
     [DbContext(typeof(HardwareInventaris))]
-    partial class HardwareInventarisModelSnapshot : ModelSnapshot
+    [Migration("20200508134817_DateTimeDev")]
+    partial class DateTimeDev
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

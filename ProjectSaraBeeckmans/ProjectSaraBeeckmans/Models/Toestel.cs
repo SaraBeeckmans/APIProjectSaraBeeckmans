@@ -12,7 +12,7 @@ namespace ProjectSaraBeeckmans.Models
         public int ToestelId { get; set; }
         [Required]
         public string SerieNummer { get; set; }
-        public DateTime AankoopDatum { get; set; }
+        public string AankoopDatum { get; set; }
         public string Garantie { get; set; }
         public double Prijs { get; set; }
 
