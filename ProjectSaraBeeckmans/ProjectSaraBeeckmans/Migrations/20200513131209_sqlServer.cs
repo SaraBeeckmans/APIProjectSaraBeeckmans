@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjectSaraBeeckmans.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class sqlServer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace ProjectSaraBeeckmans.Migrations
                 columns: table => new
                 {
                     BedrijfId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     BedrijfNaam = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Adres = table.Column<string>(nullable: true),
@@ -28,7 +28,7 @@ namespace ProjectSaraBeeckmans.Migrations
                 columns: table => new
                 {
                     CategorieId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Naam = table.Column<string>(nullable: false),
                     Opmerking = table.Column<string>(nullable: true)
                 },
@@ -42,7 +42,7 @@ namespace ProjectSaraBeeckmans.Migrations
                 columns: table => new
                 {
                     SupplierId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     Adres = table.Column<string>(nullable: true),
@@ -58,9 +58,9 @@ namespace ProjectSaraBeeckmans.Migrations
                 columns: table => new
                 {
                     ToestelId = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     SerieNummer = table.Column<string>(nullable: false),
-                    AankoopDatum = table.Column<DateTime>(nullable: false),
+                    AankoopDatum = table.Column<string>(nullable: true),
                     Garantie = table.Column<string>(nullable: true),
                     Prijs = table.Column<double>(nullable: false),
                     BedrijfId = table.Column<int>(nullable: true),
