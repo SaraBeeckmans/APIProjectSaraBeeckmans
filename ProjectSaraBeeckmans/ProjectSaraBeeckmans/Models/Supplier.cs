@@ -9,7 +9,7 @@ namespace ProjectSaraBeeckmans.Models
     public class Supplier
     {
         [Key]
-        public int SupplierId { get; set; }
+        public int id { get; set; }
         [Required]
         public string Name { get; set; }
         public string Email { get; set; }

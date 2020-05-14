@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using ProjectSaraBeeckmans.Data;
 using ProjectSaraBeeckmans.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectSaraBeeckmans.Controllers
 {
@@ -19,6 +20,20 @@ namespace ProjectSaraBeeckmans.Controllers
             return hardwareInventaris.Bedrijven.ToList();
         }
 
+        //FIND
+        [Route("{id}")]
+        [HttpGet]
+        public IActionResult GetBedrijf (int id)
+        {
+            var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
+
+            if (bedrijf == null)
+                return NotFound();
+
+            return Ok(bedrijf);
+        }
+
+
         //INSERT
         [HttpPost]
         public IActionResult CreateBedrijf([FromBody] Bedrijf newBedrijf)
@@ -31,17 +46,7 @@ namespace ProjectSaraBeeckmans.Controllers
         }
 
         //FIND
-        [Route("{id}")] 
-        [HttpGet]
-        public IActionResult GetBedrijf(int id)
-        {
-            var bedrijf = hardwareInventaris.Bedrijven.Find(id);
-            if (bedrijf == null)
-            {
-                return NotFound();
-            } 
-            return Ok(bedrijf);
-        }
+       
 
         //DELETE
         [Route("{id}")]
@@ -63,7 +68,7 @@ namespace ProjectSaraBeeckmans.Controllers
         //UPDATE
         public IActionResult UpdateBedrijf([FromBody] Bedrijf updateBedrijf)
         {
-            var orgBedrijf = hardwareInventaris.Bedrijven.Find(updateBedrijf.Id);
+            var orgBedrijf = hardwareInventaris.Bedrijven.Find(updateBedrijf.id);
             if (orgBedrijf == null)
                 return NotFound();
 

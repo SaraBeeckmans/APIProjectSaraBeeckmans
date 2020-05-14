@@ -9,7 +9,7 @@ namespace ProjectSaraBeeckmans.Models
     public class Toestel
     {
         [Key]
-        public int ToestelId { get; set; }
+        public int id { get; set; }
         [Required]
         public string SerieNummer { get; set; }
         public string AankoopDatum { get; set; }

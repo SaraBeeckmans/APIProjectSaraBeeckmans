@@ -21,7 +21,7 @@ namespace ProjectSaraBeeckmans.Migrations
 
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Bedrijf", b =>
                 {
-                    b.Property<int>("BedrijfId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -35,14 +35,14 @@ namespace ProjectSaraBeeckmans.Migrations
 
                     b.Property<string>("Tel");
 
-                    b.HasKey("BedrijfId");
+                    b.HasKey("id");
 
                     b.ToTable("Bedrijven");
                 });
 
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Categorie", b =>
                 {
-                    b.Property<int>("CategorieId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -51,14 +51,14 @@ namespace ProjectSaraBeeckmans.Migrations
 
                     b.Property<string>("Opmerking");
 
-                    b.HasKey("CategorieId");
+                    b.HasKey("id");
 
                     b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Supplier", b =>
                 {
-                    b.Property<int>("SupplierId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -71,20 +71,20 @@ namespace ProjectSaraBeeckmans.Migrations
 
                     b.Property<string>("Tel");
 
-                    b.HasKey("SupplierId");
+                    b.HasKey("id");
 
                     b.ToTable("Suppliers");
                 });
 
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Toestel", b =>
                 {
-                    b.Property<int>("ToestelId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AankoopDatum");
 
-                    b.Property<int?>("BedrijfId");
+                    b.Property<int?>("Bedrijfid");
 
                     b.Property<string>("Garantie");
 
@@ -93,13 +93,13 @@ namespace ProjectSaraBeeckmans.Migrations
                     b.Property<string>("SerieNummer")
                         .IsRequired();
 
-                    b.Property<int?>("SupplierId");
+                    b.Property<int?>("Supplierid");
 
-                    b.HasKey("ToestelId");
+                    b.HasKey("id");
 
-                    b.HasIndex("BedrijfId");
+                    b.HasIndex("Bedrijfid");
 
-                    b.HasIndex("SupplierId");
+                    b.HasIndex("Supplierid");
 
                     b.ToTable("Toesellen");
                 });
@@ -108,11 +108,11 @@ namespace ProjectSaraBeeckmans.Migrations
                 {
                     b.HasOne("ProjectSaraBeeckmans.Models.Bedrijf", "Bedrijf")
                         .WithMany("Toestellen")
-                        .HasForeignKey("BedrijfId");
+                        .HasForeignKey("Bedrijfid");
 
                     b.HasOne("ProjectSaraBeeckmans.Models.Supplier", "Supplier")
                         .WithMany("Toestellen")
-                        .HasForeignKey("SupplierId");
+                        .HasForeignKey("Supplierid");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,7 +9,7 @@ namespace ProjectSaraBeeckmans.Models
     public class Bedrijf
     {
         [Key]
-        public int BedrijfId { get; set; }
+        public int id { get; set; }
         [Required]
         public string BedrijfNaam { get; set; }
         [Required]
