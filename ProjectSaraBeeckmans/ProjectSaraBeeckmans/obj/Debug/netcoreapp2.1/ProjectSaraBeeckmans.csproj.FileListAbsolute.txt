@@ -29,3 +29,4 @@ C:\Users\sara\Desktop\AP\Trajectschijf 3\Could API\ProjectSaraBeeckmans\ProjectS
 C:\Users\sara\Desktop\AP\Trajectschijf 3\Could API\ProjectSaraBeeckmans\ProjectSaraBeeckmans\ProjectSaraBeeckmans\obj\Debug\netcoreapp2.1\ProjectSaraBeeckmans.dll
 C:\Users\sara\Desktop\AP\Trajectschijf 3\Could API\ProjectSaraBeeckmans\ProjectSaraBeeckmans\ProjectSaraBeeckmans\obj\Debug\netcoreapp2.1\ProjectSaraBeeckmans.pdb
 C:\Users\sara\Desktop\AP\Trajectschijf 3\Could API\ProjectSaraBeeckmans\ProjectSaraBeeckmans\ProjectSaraBeeckmans\obj\Debug\netcoreapp2.1\ProjectSaraBeeckmans.csproj.CopyComplete
+C:\Users\sara\Desktop\AP\Trajectschijf 3\Could API\ProjectSaraBeeckmans\ProjectSaraBeeckmans\ProjectSaraBeeckmans\obj\Debug\netcoreapp2.1\ProjectSaraBeeckmans.csprojAssemblyReference.cache

@@ -9,88 +9,88 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProjectSaraBeeckmans.Controllers
 {
-    [Route ("/api/v1/bedrijf/")]
-    public class BedrijfController:Controller
+    [Route("/api/v1/supplier/")]
+    public class SupplierController : Controller
     {
         private readonly HardwareInventaris hardwareInventaris = new HardwareInventaris();
 
         //SELECT SQL
 
-        public List<Bedrijf> GetBedrijfs(string naam, string email)
+        public List<Supplier> GetSupplies(string naam, string email)
         {
             //return hardwareInventaris.Bedrijven.ToList();
 
-            IQueryable<Bedrijf> query = hardwareInventaris.Bedrijven;
+            IQueryable<Supplier> query = hardwareInventaris.Suppliers;
 
             if (!string.IsNullOrWhiteSpace(naam))
-                query = query.Where(d => d.BedrijfNaam == naam);
+                query = query.Where(d => d.Name == naam);
             if (!string.IsNullOrWhiteSpace(email))
                 query = query.Where(d => d.Email == email);
 
             return query.ToList();
-          
+
         }
 
         //FIND
         [Route("{id}")]
         [HttpGet]
-        public IActionResult GetBedrijf (int id)
+        public IActionResult GetSupplier(int id)
         {
             //var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
-            var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
+            var supplier = hardwareInventaris.Suppliers.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
 
-            if (bedrijf == null)
+            if (supplier == null)
                 return NotFound();
 
-            return Ok(bedrijf);
+            return Ok(supplier);
         }
 
 
         //INSERT
         [HttpPost]
-        public IActionResult CreateBedrijf([FromBody] Bedrijf newBedrijf)
+        public IActionResult CreateSupplier([FromBody] Supplier newSupplier)
         {
-            hardwareInventaris.Bedrijven.Add(newBedrijf);
+            hardwareInventaris.Suppliers.Add(newSupplier);
             hardwareInventaris.SaveChanges();
             //Stuur een result 201 met het boek als content
-            return Created("", newBedrijf);
+            return Created("", newSupplier);
 
         }
 
 
-       
+
 
         //DELETE
         [Route("{id}")]
         [HttpDelete]
 
-        public IActionResult DeleteBedrijf(int id)
+        public IActionResult DeleteSupplier(int id)
         {
-            var bedrijf = hardwareInventaris.Bedrijven.Find(id);
-            if(bedrijf == null)
+            var sup = hardwareInventaris.Suppliers.Find(id);
+            if (sup == null)
             {
                 return NotFound();
             }
-            hardwareInventaris.Bedrijven.Remove(bedrijf);
+            hardwareInventaris.Suppliers.Remove(sup);
             hardwareInventaris.SaveChanges();
 
             return NoContent();
         }
 
         //UPDATE
-        public IActionResult UpdateBedrijf([FromBody] Bedrijf updateBedrijf)
+        public IActionResult UpdateSupplier([FromBody] Supplier updateSupplier)
         {
-            var orgBedrijf = hardwareInventaris.Bedrijven.Find(updateBedrijf.id);
-            if (orgBedrijf == null)
+            var orgSupplier = hardwareInventaris.Suppliers.Find(updateSupplier.id);
+            if (orgSupplier == null)
                 return NotFound();
 
-            orgBedrijf.BedrijfNaam = updateBedrijf.BedrijfNaam;
-            orgBedrijf.Adres = updateBedrijf.Adres;
-            orgBedrijf.Email = updateBedrijf.Email;
-            orgBedrijf.Tel = updateBedrijf.Tel;
+            orgSupplier.Name = updateSupplier.Name;
+            orgSupplier.Adres = updateSupplier.Adres;
+            orgSupplier.Email = updateSupplier.Email;
+            orgSupplier.Tel = updateSupplier.Tel;
 
             hardwareInventaris.SaveChanges();
-            return Ok(orgBedrijf);
+            return Ok(orgSupplier);
         }
 
 
