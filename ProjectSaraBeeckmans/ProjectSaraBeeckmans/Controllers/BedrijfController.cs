@@ -15,7 +15,8 @@ namespace ProjectSaraBeeckmans.Controllers
         private readonly HardwareInventaris hardwareInventaris = new HardwareInventaris();
 
         //SELECT SQL
-
+        [Route("list")]
+        [HttpGet]
         public List<Bedrijf> GetBedrijfs(string naam, string email)
         {
             //return hardwareInventaris.Bedrijven.ToList();

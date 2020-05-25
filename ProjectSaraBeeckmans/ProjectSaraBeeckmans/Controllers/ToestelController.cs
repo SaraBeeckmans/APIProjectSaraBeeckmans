@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProjectSaraBeeckmans.Controllers
 {
-    [Route("/api/v1/bedrijf/")]
+    [Route("/api/v1/Toestel/")]
     public class ToestelController : Controller
     {
         private readonly HardwareInventaris hardwareInventaris = new HardwareInventaris();
@@ -73,7 +73,7 @@ namespace ProjectSaraBeeckmans.Controllers
             {
                 return NotFound();
             }
-            hardwareInventaris.Bedrijven.Remove(toestel);
+            hardwareInventaris.Toesellen.Remove(toestel);
             hardwareInventaris.SaveChanges();
 
             return NoContent();
