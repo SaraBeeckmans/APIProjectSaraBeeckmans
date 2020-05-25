@@ -8,19 +8,24 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data) {
             console.log(data);
-            $.each(data, function (i, item) {
+            $("#find").append(
+                "<input id = 'myInput'>" +
+                "<button id='searchButton' onclick=searchItem(document.getElementById('myInput').value)>Zoek</button>"+
+                "<button id='backButton' onclick=originalState()>Terug</button>"
+            )
 
+            $.each(data, function (i, item) {
 
                 $("#bedrijfstabel").append(
 
                     "<div class= 'row' id='" + item.id +"' >" +
-                    "<div class='column' style='background-color:#ccc;'>" +
-                        "<p>" + item.bedrijfNaam + "</p>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.bedrijfNaam + " id = " + item.id+"</p > " +
                     "</div>" +
-                    "<div class='column' style='background-color:#ddd;'>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
                         "<p>" + item.email + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#ccc;'>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
                         "<p>" + item.adres + "</p>" +
                     "</div>" +
                     "<div class='column' style='background-color:#bbb;'>" +
@@ -55,5 +60,89 @@ function verwijderItem(id) {
     })
     
 };
+
+function searchItem(str) {
+    var destinationUrl = "/api/v1/bedrijf/find/" + str;
+    console.log(destinationUrl);
+    $.ajax({
+        type: "GET",
+        url: destinationUrl,
+        data: '$format=json',
+        dataType: 'json',
+        success: function (data) {
+            $('#bedrijfstabel > div').remove(); 
+
+            $.each(data, function (i, item) {
+
+                $("#bedrijfstabel").append(
+
+                    "<div class= 'row' id='" + item.id + "' >" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.bedrijfNaam + " id = " + item.id + "</p > " +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.email + "</p>" +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.adres + "</p>" +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.tel + "</p>" +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<button onclick='verwijderItem(" + item.id + ")'>Verwijderen</button>" +
+                    "</div>" +
+
+                    "</div >"
+                )
+            });
+        }
+
+    })
+    
+
+};
+
+function originalState() {
+    $.ajax({
+        type: "GET",
+        url: "/api/v1/bedrijf/list",
+        data: '$format=json',
+        dataType: 'json',
+        success: function (data) {
+
+            $('#bedrijfstabel > div').remove();
+
+            console.log(data);
+
+            $.each(data, function (i, item) {
+
+                $("#bedrijfstabel").append(
+
+                    "<div class= 'row' id='" + item.id + "' >" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.bedrijfNaam + " id = " + item.id + "</p > " +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.email + "</p>" +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.adres + "</p>" +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<p>" + item.tel + "</p>" +
+                    "</div>" +
+                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<button onclick='verwijderItem(" + item.id + ")'>Verwijderen</button>" +
+                    "</div>" +
+
+                    "</div >"
+                )
+            });
+        }
+
+    })
+};
+
 
 

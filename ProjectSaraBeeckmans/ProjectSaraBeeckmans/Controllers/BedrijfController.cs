@@ -33,12 +33,12 @@ namespace ProjectSaraBeeckmans.Controllers
         }
 
         //FIND
-        [Route("find/{id}")]
+        [Route("find/{str}")]
         [HttpGet]
-        public IActionResult GetBedrijf (int id)
+        public IActionResult GetBedrijf (string str)
         {
             //var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
-            var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
+            var bedrijf = hardwareInventaris.Bedrijven.Where(n => n.BedrijfNaam.Contains(str) || n.Email.Contains(str) || n.Adres.Contains(str) || n.Tel.Contains(str));
 
             if (bedrijf == null)
                 return NotFound();
