@@ -49,13 +49,18 @@ namespace ProjectSaraBeeckmans.Controllers
 
         //INSERT
         [Route("add")]
-        [HttpPost]
-        public IActionResult CreateBedrijf([FromBody] Bedrijf newBedrijf)
+        [HttpPut]
+        public IActionResult CreateBedrijf([FromQuery] string bedrijfsNaam, [FromQuery] string email, [FromQuery] string adres, [FromQuery] string tel)
         {
-            hardwareInventaris.Bedrijven.Add(newBedrijf);
+            Bedrijf bedrijf = new Bedrijf();
+            bedrijf.BedrijfNaam = bedrijfsNaam;
+            bedrijf.Adres = adres;
+            bedrijf.Email = email;
+            bedrijf.Tel = tel;
+            hardwareInventaris.Bedrijven.Add(bedrijf);
             hardwareInventaris.SaveChanges();
             //Stuur een result 201 met het boek als content
-            return Created("", newBedrijf);
+            return Created("", bedrijf);
 
         }
 

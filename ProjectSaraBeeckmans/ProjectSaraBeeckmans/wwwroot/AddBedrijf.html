@@ -1,5 +1,24 @@
 ﻿<!DOCTYPE html>
-<html>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script>
+    function AddBedrijf(bedrijfsnaam, adres, email, tel) {
+
+        var theUrl = "/api/v1/bedrijf/add?bedrijfsNaam=" + bedrijfsnaam + "&email=" + email + "&adres=" + adres + "&tel=" + tel;
+        console.log(theUrl);
+        $.ajax({
+            type: "PUT",
+            url: theUrl,
+            data: '$format=json',
+            dataType: 'json',
+            success: function (data) {
+                console.log("toegevoegd");
+            }
+
+        })
+
+    };
+</script>
 <style>
     input[type=text], select {
         width: 100%;
@@ -11,7 +30,7 @@
         box-sizing: border-box;
     }
 
-    input[type=submit] {
+    submit {
         width: 100%;
         background-color: #4CAF50;
         color: white;
@@ -22,9 +41,9 @@
         cursor: pointer;
     }
 
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
 
     div {
         border-radius: 5px;
@@ -32,27 +51,28 @@
         padding: 20px;
     }
 </style>
-<script src="~/js/BedrijfsOverzicht.js"></script>
-<body>
+<html>
 
-   
+
+<body>
+    <form method="get" action="https://localhost:44377/">
+        <button type="submit">Back</button>
+    </form>
 
     <div>
-        <form>
-            <label for="name">Bedrijfs naam</label>
-            <input type="text" id="name" name="bedrijfsnaam" placeholder="Uw bedrijfsnaam..">
+        <label for="name">Bedrijfs naam</label>
+        <input type="text" id="bedrijfsnaam" name="bedrijfsnaam" placeholder="Uw bedrijfsnaam..">
 
-            <label for="adres">Adres</label>
-            <input type="text" id="adres" name="adres" placeholder="Uw adres..">
+        <label for="adres">Adres</label>
+        <input type="text" id="adres" name="adres" placeholder="Uw adres..">
 
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" placeholder="Uw email adres..">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Uw email adres..">
 
-            <label for="tel">Telefoonnummer</label>
-            <input type="text" id="tel" name="tel" placeholder="Uw telefoonnummer..">
-
-            <input type="submit" value="Submit">
-        </form>
+        <label for="tel">Telefoonnummer</label>
+        <input type="text" id="tel" name="tel" placeholder="Uw telefoonnummer..">
+        <br>
+        <button id="submit" onclick="AddBedrijf(document.getElementById('bedrijfsnaam').value, document.getElementById('adres').value, document.getElementById('email').value,document.getElementById('tel').value);">Voeg toe</button>
     </div>
 
 </body>
