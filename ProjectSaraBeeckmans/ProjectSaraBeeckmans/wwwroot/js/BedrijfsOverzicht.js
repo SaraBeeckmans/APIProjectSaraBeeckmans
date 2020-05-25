@@ -13,23 +13,19 @@ $(document).ready(function () {
 
                 $("#bedrijfstabel").append(
 
-
-                    "< div class= 'row' >" +
-                    "<div class='column' style='background-color:#ccc;'>" +
-                    "<p>" + item.bedrijfNaam + "</p>" +
-                    "</div>" +
-                    "<div class='column' style='background-color:#ddd;'>" +
-                    "<p>" + item.email + "</p>" +
-
-                    "</div>" +
-                    "<div class='column' style='background-color:#ccc;'>" +
-                    "<p>" + item.adres + "</p>" +
-
-                    "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.tel + "</p>" +
-
-                    "</div>" +
+                    "<div class= 'row' >" +
+                        "<div class='column' style='background-color:#ccc;'>" +
+                            "<p>" + item.bedrijfNaam + "</p>" +
+                        "</div>" +
+                        "<div class='column' style='background-color:#ddd;'>" +
+                            "<p>" + item.email + "</p>" +
+                        "</div>" +
+                        "<div class='column' style='background-color:#ccc;'>" +
+                            "<p>" + item.adres + "</p>" +
+                        "</div>" +
+                        "<div class='column' style='background-color:#bbb;'>" +
+                            "<p>" + item.tel + "</p>" +
+                        "</div>" +
                     "</div >"
                 )
             });
