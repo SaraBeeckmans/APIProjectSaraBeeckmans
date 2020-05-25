@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\Index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\js\BedrijfsOverzicht.js" />
     <None Include="wwwroot\toestellen.html" />
   </ItemGroup>
