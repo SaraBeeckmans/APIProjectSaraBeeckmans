@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-
+    console.log("aaaaaaaaaa");
     $.ajax({
         type: "GET",
         url: "/api/v1/toestel/list",
@@ -9,31 +9,35 @@ $(document).ready(function () {
         success: function (data) {
             console.log(data);
             $("#find").append(
-                "<input id = 'myInput'>" +
-                "<button id='searchButton' onclick=searchItem(document.getElementById('myInput').value)>Zoek</button>" +
-                "<button id='backButton' onclick=originalState()>Terug</button>"
 
-            )
+                "<input id = 'myInput' type='text' class='form-control' placeholder='Search' aria-describedby='button-addon4'>" +
+                "<div class='input-group-append' id='button-addon4'>" +
+                "<button class='btn btn-outline-secondary' type='button' onclick=searchItem(document.getElementById('myInput').value)>Zoek</button>" +
+                "<button class='btn btn-outline-secondary' type='button' onclick=originalState()>Terug</button>"
 
+
+            );
+
+            console.log("xxx");
             $.each(data, function (i, item) {
-
+                console.log("aaé");
                 $("#toestelTabel").append(
-
-                    "<div class= 'row' id='" + item.id + "' >" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.serieNummer + " id = " + item.id + "</p > " +
+                    
+                    "<div class='row' id='" + item.id + "'>" +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.serieNummer + "id =" + item.id + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.aankoopDatum + "</p>" +
+                    "<div class='col-md-3'>" +
+                    "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<div class='col-md-2'>" +
                     "<p>" + item.prijs + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.garantie + "</p>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<button onclick='verwijderItem(" + item.id + ")'>Verwijderen</button>" +
+                    "<div class='col-md-2 text-center'>" +
+                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
                     "</div>" +
 
                     "</div >"
@@ -78,20 +82,20 @@ function searchItem(str) {
                 $("#toestelTabel").append(
 
                     "<div class= 'row' id='" + item.id + "' >" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.serieNummer + " id = " + item.id + "</p > " +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.serieNummer + " id = " + item.id + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.aankoopDatum + "</p>" +
+                    "<div class='col-md-3'>" +
+                    "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<div class='col-md-2'>" +
                     "<p>" + item.prijs + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.garantie + "</p>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<button onclick='verwijderItem(" + item.id + ")'>Verwijderen</button>" +
+                    "<div class='col-md-2 text-center'>" +
+                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
                     "</div>" +
 
                     "</div >"
@@ -122,20 +126,20 @@ function originalState() {
                 $("#toestelTabel").append(
 
                     "<div class= 'row' id='" + item.id + "' >" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.serieNummer + " id = " + item.id + "</p > " +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.serieNummer + " id = " + item.id + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.aankoopDatum + "</p>" +
+                    "<div class='col-md-3'>" +
+                    "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
+                    "<div class='col-md-2'>" +
                     "<p>" + item.prijs + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<p>" + item.garantie + "</p>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
-                    "<div class='column' style='background-color:#bbb;'>" +
-                    "<button onclick='verwijderItem(" + item.id + ")'>Verwijderen</button>" +
+                    "<div class='col-md-2 text-center'>" +
+                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
                     "</div>" +
 
                     "</div >"
