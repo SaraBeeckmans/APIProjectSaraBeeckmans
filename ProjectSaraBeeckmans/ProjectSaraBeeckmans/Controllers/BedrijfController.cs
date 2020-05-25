@@ -33,7 +33,7 @@ namespace ProjectSaraBeeckmans.Controllers
         }
 
         //FIND
-        [Route("{id}")]
+        [Route("find/{id}")]
         [HttpGet]
         public IActionResult GetBedrijf (int id)
         {
@@ -62,7 +62,7 @@ namespace ProjectSaraBeeckmans.Controllers
        
 
         //DELETE
-        [Route("{id}")]
+        [Route("delete/{id}")]
         [HttpDelete]
 
         public IActionResult DeleteBedrijf(int id)
