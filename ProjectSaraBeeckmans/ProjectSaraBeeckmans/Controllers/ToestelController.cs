@@ -9,13 +9,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ProjectSaraBeeckmans.Controllers
 {
-    [Route("/api/v1/Toestel/")]
+    [Route("/api/v1/toestel/")]
     public class ToestelController : Controller
     {
         private readonly HardwareInventaris hardwareInventaris = new HardwareInventaris();
 
         //SELECT SQL
-
+        [Route("list")]
+        [HttpGet]
         public List<Toestel> GetToestellen(string serienummer, string aankoopdatum)
         {
             //return hardwareInventaris.Bedrijven.ToList();
@@ -32,14 +33,14 @@ namespace ProjectSaraBeeckmans.Controllers
         }
 
         //FIND
-        [Route("{id}")]
+        [Route("find/{str}")]
         [HttpGet]
-        public IActionResult GetToestel(int id)
+        public IActionResult GetToestel(string str)
         {
             //Relatie suppliers nog toevoegen
             //var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
-            var toestel = hardwareInventaris.Toesellen.Include(d => d.Bedrijf).SingleOrDefault(d => d.id == id);
-            
+            var toestel = hardwareInventaris.Toesellen.Where(n => n.SerieNummer.Contains(str)  || n.AankoopDatum.Contains(str) || n.Garantie.Contains(str));
+
 
             if (toestel == null)
                 return NotFound();
@@ -63,7 +64,7 @@ namespace ProjectSaraBeeckmans.Controllers
 
 
         //DELETE
-        [Route("{id}")]
+        [Route("delete/{id}")]
         [HttpDelete]
 
         public IActionResult DeleteToestel(int id)

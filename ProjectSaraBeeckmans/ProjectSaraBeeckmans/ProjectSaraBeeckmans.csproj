@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\js\BedrijfsOverzicht.js" />
+    <None Include="wwwroot\toestellen.html" />
   </ItemGroup>
 
   <ItemGroup>

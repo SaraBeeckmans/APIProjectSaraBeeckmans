@@ -48,6 +48,7 @@ namespace ProjectSaraBeeckmans.Controllers
 
 
         //INSERT
+        [Route("add")]
         [HttpPost]
         public IActionResult CreateBedrijf([FromBody] Bedrijf newBedrijf)
         {
