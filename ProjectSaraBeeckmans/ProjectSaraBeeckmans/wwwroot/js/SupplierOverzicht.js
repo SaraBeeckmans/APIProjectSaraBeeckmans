@@ -50,104 +50,104 @@ $(document).ready(function () {
 
 });
 
-//function verwijderItem(id) {
+function verwijderItem(id) {
 
-//    $.ajax({
-//        type: "DELETE",
-//        url: "/api/v1/bedrijf/delete/" + id,
-//        data: '$format=json',
-//        dataType: 'json',
-//        success: function (data) {
-//            console.log(id);
-//            $("#" + id).remove();
-//        }
+    $.ajax({
+        type: "DELETE",
+        url: "/api/v1/supplier/delete/" + id,
+        data: '$format=json',
+        dataType: 'json',
+        success: function (data) {
+            console.log(id);
+            $("#" + id).remove();
+        }
 
-//    })
+    })
 
-//};
+};
 
-//function searchItem(str) {
-//    var destinationUrl = "/api/v1/bedrijf/find/" + str;
-//    console.log(destinationUrl);
-//    $.ajax({
-//        type: "GET",
-//        url: destinationUrl,
-//        data: '$format=json',
-//        dataType: 'json',
-//        success: function (data) {
-//            $('#bedrijfstabel > div').remove();
+function searchItem(str) {
+    var destinationUrl = "/api/v1/supplier/find/" + str;
+    console.log(destinationUrl);
+    $.ajax({
+        type: "GET",
+        url: destinationUrl,
+        data: '$format=json',
+        dataType: 'json',
+        success: function (data) {
+            $('#supplierTabel > div').remove();
 
-//            $.each(data, function (i, item) {
+            $.each(data, function (i, item) {
 
-//                $("#bedrijfstabel").append(
+                $("#supplierTabel").append(
 
-//                    "<div class= 'row' id='" + item.id + "' >" +
-//                    "<div class='col-md-3'>" +
-//                    "<p>" + item.bedrijfNaam + " id = " + item.id + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-2'>" +
-//                    "<p style='word-break: break-all;'>" + item.email + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-3'>" +
-//                    "<p>" + item.adres + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-2'>" +
-//                    "<p style='word-break: break-all;'>" + item.tel + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-2 text-center'>" +
-//                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
-//                    "</div>" +
+                    "<div class= 'row' id='" + item.id + "' >" +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.name + " id = " + item.id + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.email + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.adres + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.tel + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-2 text-center'>" +
+                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
+                    "</div>" +
 
-//                    "</div >"
-//                )
-//            });
-//        }
+                    "</div >"
+                )
+            });
+        }
 
-//    })
+    })
 
 
-//};
+};
 
-//function originalState() {
-//    $.ajax({
-//        type: "GET",
-//        url: "/api/v1/bedrijf/list",
-//        data: '$format=json',
-//        dataType: 'json',
-//        success: function (data) {
+function originalState() {
+    $.ajax({
+        type: "GET",
+        url: "/api/v1/supplier/list",
+        data: '$format=json',
+        dataType: 'json',
+        success: function (data) {
 
-//            $('#bedrijfstabel > div').remove();
+            $('#supplierTabel > div').remove();
 
-//            console.log(data);
+            console.log(data);
 
-//            $.each(data, function (i, item) {
+            $.each(data, function (i, item) {
 
-//                $("#bedrijfstabel").append(
+                $("#supplierTabel").append(
 
-//                    "<div class= 'row' id='" + item.id + "' >" +
-//                    "<div class='col-md-3'>" +
-//                    "<p>" + item.bedrijfNaam + " id = " + item.id + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-2'>" +
-//                    "<p style='word-break: break-all;'>" + item.email + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-3'>" +
-//                    "<p>" + item.adres + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-2'>" +
-//                    "<p style='word-break: break-all;'>" + item.tel + "</p>" +
-//                    "</div>" +
-//                    "<div class='col-md-2 text-center'>" +
-//                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
-//                    "</div>" +
+                    "<div class= 'row' id='" + item.id + "' >" +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.name + " id = " + item.id + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.email + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-3'>" +
+                    "<p>" + item.adres + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.tel + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-2 text-center'>" +
+                    "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
+                    "</div>" +
 
-//                    "</div >"
-//                )
-//            });
-//        }
+                    "</div >"
+                )
+            });
+        }
 
-//    })
-//};
+    })
+};
 
 
 

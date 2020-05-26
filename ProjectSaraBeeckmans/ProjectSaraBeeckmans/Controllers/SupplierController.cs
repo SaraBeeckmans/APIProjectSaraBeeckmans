@@ -36,10 +36,8 @@ namespace ProjectSaraBeeckmans.Controllers
         //FIND
         [Route("find/{str}")]
         [HttpGet]
-        public IActionResult GetSupplier(int id)
-        {
-            //var bedrijf = hardwareInventaris.Bedrijven.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
-            var supplier = hardwareInventaris.Suppliers.Include(d => d.Toestellen).SingleOrDefault(d => d.id == id);
+        public IActionResult GetSupplier(string str)
+        { var supplier = hardwareInventaris.Suppliers.Where(n => n.Name.Contains(str) || n.Email.Contains(str) || n.Adres.Contains(str) || n.Tel.Contains(str));
 
             if (supplier == null)
                 return NotFound();
