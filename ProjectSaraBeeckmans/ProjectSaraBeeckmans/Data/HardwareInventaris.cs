@@ -16,8 +16,18 @@ namespace ProjectSaraBeeckmans.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = hwinventaris; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
-            
+            //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = hwinventaris; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            optionsBuilder.UseMySql("server=localhost;database=hwinventaris;user=webapi;password=webapi;");
         }
     }
 }
+
+//public class DesignLocationFactory : IDesignTimeDbContextFactory<LocationDbContext>
+//{
+//    public LocationDbContext CreateDbContext(string[] args)
+//    {
+//        var builder = new DbContextOptionsBuilder<LocationDbContext>();
+//        builder.UseMySQL("server=localhost;port=3306;user=***;passsword=***;database=locationdb");
+//        return new LocationDbContext(builder.Options);
+//    }
+//}
