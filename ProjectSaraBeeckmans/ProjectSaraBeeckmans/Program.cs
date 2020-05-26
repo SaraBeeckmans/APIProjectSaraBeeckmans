@@ -20,7 +20,7 @@ namespace ProjectSaraBeeckmans
 
             Bedrijf bedrijfRelationsComp = new Bedrijf()
             {
-                BedrijfNaam = "Relations Comp",
+                BedrijfNaam = "Voorbeeld bedrijf",
                 Email = "relationscomp@gmail.com",
                 Adres = "Bredabaan 222 Merksem",
                 Tel = "045896323"
@@ -28,18 +28,32 @@ namespace ProjectSaraBeeckmans
 
             };
             hardwareInventaris.Bedrijven.Add(bedrijfRelationsComp);
+            var bedrijf = hardwareInventaris.Bedrijven.Where(n => n.BedrijfNaam.Contains("voorb")).First();
 
             Toestel laptop = new Toestel()
             {
                 SerieNummer = "5NGTFD566",
                 AankoopDatum = "10/2/2020",
                 Garantie = "2 jaar",
-                Prijs = 1500
+                Prijs = 1500,
+                Bedrijf = bedrijf
 
 
 
             };
             hardwareInventaris.Toesellen.Add(laptop);
+
+            Supplier supplier = new Supplier()
+            {
+                Name = "BenD",
+                Email = "bend@gmail.com",
+                Adres = "Kreeftlaan 1",
+                Tel = "045878593"
+               
+            };
+            hardwareInventaris.Suppliers.Add(supplier);
+
+
 
             hardwareInventaris.SaveChanges();
 

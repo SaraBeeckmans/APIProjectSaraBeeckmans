@@ -8,6 +8,11 @@ namespace ProjectSaraBeeckmans.Models
 {
     public class Toestel
     {
+        //public Toestel()
+        //{
+        //    this.Categories = new HashSet<Categorie>();
+        //}
+
         [Key]
         public int id { get; set; }
         [Required]
@@ -17,9 +22,9 @@ namespace ProjectSaraBeeckmans.Models
         public double Prijs { get; set; }
 
         public Bedrijf Bedrijf { get; set; }
-        public Supplier Supplier { get; set; } 
-            
-                    
+        public Supplier Supplier { get; set; }
 
+
+        public ICollection<ToestelCategorie> ToestelCategories { get; set; }
     }
 }

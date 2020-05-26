@@ -38,6 +38,7 @@ $(document).ready(function () {
                     "</div>" +
                     "<div class='col-md-2 text-center'>" +
                     "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
+                    "<p style='word-break: break-all;'>" + item.bedrijf + "</p>" +
                     "</div>" +
 
                     "</div >"

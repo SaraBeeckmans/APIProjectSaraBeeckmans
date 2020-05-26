@@ -8,11 +8,18 @@ namespace ProjectSaraBeeckmans.Models
 {
     public class Categorie
     {
+        //public Categorie()
+        //{
+        //    this.Toestellen = new HashSet<Toestel>();
+        //}
+
         [Key]
         public int id { get; set; }
         [Required]
         public string Naam { get; set; }
         public string Opmerking { get; set; }
+
+        public ICollection<ToestelCategorie> ToestelCategories { get; set; }
 
 
     }

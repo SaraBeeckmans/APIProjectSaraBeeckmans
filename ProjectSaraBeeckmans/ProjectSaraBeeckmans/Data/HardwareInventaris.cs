@@ -13,6 +13,21 @@ namespace ProjectSaraBeeckmans.Data
         public DbSet<Categorie> Categories { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Toestel> Toesellen { get; set; }
+        public DbSet<ToestelCategorie> ToestelCategories { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ToestelCategorie>()
+                .HasKey(bc => new { bc.ToestelId, bc.CategorieId });
+            modelBuilder.Entity<ToestelCategorie>()
+                .HasOne(bc => bc.toestel)
+                .WithMany(b => b.ToestelCategories)
+                .HasForeignKey(bc => bc.ToestelId);
+            modelBuilder.Entity<ToestelCategorie>()
+                .HasOne(bc => bc.categorie)
+                .WithMany(c => c.ToestelCategories)
+                .HasForeignKey(bc => bc.CategorieId);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -9,8 +9,8 @@ using ProjectSaraBeeckmans.Data;
 namespace ProjectSaraBeeckmans.Migrations
 {
     [DbContext(typeof(HardwareInventaris))]
-    [Migration("20200526114258_newMysql")]
-    partial class newMysql
+    [Migration("20200526135127_manytomany")]
+    partial class manytomany
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -100,6 +100,19 @@ namespace ProjectSaraBeeckmans.Migrations
                     b.ToTable("Toesellen");
                 });
 
+            modelBuilder.Entity("ProjectSaraBeeckmans.Models.ToestelCategorie", b =>
+                {
+                    b.Property<int>("ToestelId");
+
+                    b.Property<int>("CategorieId");
+
+                    b.HasKey("ToestelId", "CategorieId");
+
+                    b.HasIndex("CategorieId");
+
+                    b.ToTable("ToestelCategories");
+                });
+
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Toestel", b =>
                 {
                     b.HasOne("ProjectSaraBeeckmans.Models.Bedrijf", "Bedrijf")
@@ -109,6 +122,19 @@ namespace ProjectSaraBeeckmans.Migrations
                     b.HasOne("ProjectSaraBeeckmans.Models.Supplier", "Supplier")
                         .WithMany("Toestellen")
                         .HasForeignKey("Supplierid");
+                });
+
+            modelBuilder.Entity("ProjectSaraBeeckmans.Models.ToestelCategorie", b =>
+                {
+                    b.HasOne("ProjectSaraBeeckmans.Models.Categorie", "categorie")
+                        .WithMany("ToestelCategories")
+                        .HasForeignKey("CategorieId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ProjectSaraBeeckmans.Models.Toestel", "toestel")
+                        .WithMany("ToestelCategories")
+                        .HasForeignKey("ToestelId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
