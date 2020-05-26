@@ -25,7 +25,7 @@ $(document).ready(function () {
 
                     "<div class= 'row' id='" + item.id +"' >" +
                     "<div class='col-md-3'>" +
-                    "<p>"+ item.bedrijfNaam + " id = " + item.id + "</p>" + 
+                    "<p>"+ item.bedrijfNaam + "</p>" + 
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.email + "</p>" +
@@ -83,7 +83,7 @@ function searchItem(str) {
 
                     "<div class= 'row' id='" + item.id + "' >" +
                     "<div class='col-md-3'>" +
-                    "<p>" + item.bedrijfNaam + " id = " + item.id + "</p>" +
+                    "<p>" + item.bedrijfNaam +"</p>" +
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.email + "</p>" +
@@ -126,7 +126,7 @@ function originalState() {
 
                     "<div class= 'row' id='" + item.id + "' >" +
                     "<div class='col-md-3'>" +
-                    "<p>" + item.bedrijfNaam + " id = " + item.id + "</p>" +
+                    "<p>" + item.bedrijfNaam +"</p>" +
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.email + "</p>" +
