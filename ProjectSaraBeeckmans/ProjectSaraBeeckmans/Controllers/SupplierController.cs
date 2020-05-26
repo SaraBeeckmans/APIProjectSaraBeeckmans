@@ -16,6 +16,8 @@ namespace ProjectSaraBeeckmans.Controllers
 
         //SELECT SQL
 
+        [Route("list")]
+        [HttpGet]
         public List<Supplier> GetSupplies(string naam, string email)
         {
             //return hardwareInventaris.Bedrijven.ToList();
@@ -32,7 +34,7 @@ namespace ProjectSaraBeeckmans.Controllers
         }
 
         //FIND
-        [Route("{id}")]
+        [Route("find/{str}")]
         [HttpGet]
         public IActionResult GetSupplier(int id)
         {
@@ -61,7 +63,7 @@ namespace ProjectSaraBeeckmans.Controllers
 
 
         //DELETE
-        [Route("{id}")]
+        [Route("delete/{id}")]
         [HttpDelete]
 
         public IActionResult DeleteSupplier(int id)

@@ -18,7 +18,7 @@ $(document).ready(function () {
 
             );
 
-            console.log("xxx");
+            
             $.each(data, function (i, item) {
                 console.log("aaé");
                 $("#toestelTabel").append(
