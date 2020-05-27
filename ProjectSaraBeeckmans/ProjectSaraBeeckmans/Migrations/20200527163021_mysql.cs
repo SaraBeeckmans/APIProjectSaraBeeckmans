@@ -2,7 +2,7 @@
 
 namespace ProjectSaraBeeckmans.Migrations
 {
-    public partial class testIlist : Migration
+    public partial class mysql : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

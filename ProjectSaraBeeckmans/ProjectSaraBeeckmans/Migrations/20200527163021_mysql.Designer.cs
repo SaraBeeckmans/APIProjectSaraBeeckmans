@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectSaraBeeckmans.Data;
@@ -10,22 +9,20 @@ using ProjectSaraBeeckmans.Data;
 namespace ProjectSaraBeeckmans.Migrations
 {
     [DbContext(typeof(HardwareInventaris))]
-    [Migration("20200527083906_newMigration")]
-    partial class newMigration
+    [Migration("20200527163021_mysql")]
+    partial class mysql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.14-servicing-32113")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Bedrijf", b =>
                 {
                     b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Adres");
 
@@ -45,8 +42,7 @@ namespace ProjectSaraBeeckmans.Migrations
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Categorie", b =>
                 {
                     b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Naam")
                         .IsRequired();
@@ -61,8 +57,7 @@ namespace ProjectSaraBeeckmans.Migrations
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Supplier", b =>
                 {
                     b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Adres");
 
@@ -81,12 +76,11 @@ namespace ProjectSaraBeeckmans.Migrations
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.Toestel", b =>
                 {
                     b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("AankoopDatum");
 
-                    b.Property<int?>("Bedrijfid");
+                    b.Property<int?>("BedrijfId");
 
                     b.Property<string>("Garantie");
 
@@ -95,13 +89,13 @@ namespace ProjectSaraBeeckmans.Migrations
                     b.Property<string>("SerieNummer")
                         .IsRequired();
 
-                    b.Property<int?>("Supplierid");
+                    b.Property<int?>("SupplierId");
 
                     b.HasKey("id");
 
-                    b.HasIndex("Bedrijfid");
+                    b.HasIndex("BedrijfId");
 
-                    b.HasIndex("Supplierid");
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("Toesellen");
                 });
@@ -123,11 +117,11 @@ namespace ProjectSaraBeeckmans.Migrations
                 {
                     b.HasOne("ProjectSaraBeeckmans.Models.Bedrijf", "Bedrijf")
                         .WithMany("Toestellen")
-                        .HasForeignKey("Bedrijfid");
+                        .HasForeignKey("BedrijfId");
 
                     b.HasOne("ProjectSaraBeeckmans.Models.Supplier", "Supplier")
                         .WithMany("Toestellen")
-                        .HasForeignKey("Supplierid");
+                        .HasForeignKey("SupplierId");
                 });
 
             modelBuilder.Entity("ProjectSaraBeeckmans.Models.ToestelCategorie", b =>
