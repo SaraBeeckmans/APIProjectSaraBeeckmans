@@ -23,15 +23,22 @@ $(document).ready(function () {
 
 
                 $.each(data, function (i, item) {
-                    console.log(data);
-                    console.log(item.bedrijfId);
+
+                    var supName = "";
+                    if (item.supplier != null) {
+                        supName = item.supplier.name;
+                    }
+                    var bedName = "";
+                    if (item.bedrijf != null) {
+                        bedName = item.bedrijf.bedrijfNaam;
+                    }
                     $("#toestelTabel").append(
 
 
 
                         "<div class='row' id='" + item.id + "'>" +
                         "<div class='col-md-2'>" +
-                        "<p>" + item.serieNummer + "id =" + item.id + "</p>" +
+                        "<p>" + item.serieNummer +"</p>" +
                         "</div>" +
                         "<div class='col-md-3'>" +
                         "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
@@ -43,10 +50,10 @@ $(document).ready(function () {
                         "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                         "</div>" +
                         "<div class='col-md-1'>" +
-                        "<p style='word-break: break-all;'>" + item.supplier.name + "</p>" +
+                        "<p style='word-break: break-all;'>" + supName + "</p>" +
                         "</div>" +
                         "<div class='col-md-1'>" +
-                        "<p style='word-break: break-all;'>" + item.bedrijf.bedrijfNaam + "</p>" +
+                        "<p style='word-break: break-all;'>" + bedName + "</p>" +
                         "</div>" +
                         "<div class='col-md-2 text-center'>" +
                         "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
@@ -95,15 +102,25 @@ function searchItem(str) {
         data: '$format=json',
         dataType: 'json',
         success: function (data) {
+            
             $('#toestelTabel > div').remove();
 
             $.each(data, function (i, item) {
+
+                var supName = "";
+                if (item.supplier != null) {
+                    supName = item.supplier.name;
+                }
+                var bedName = "";
+                if (item.bedrijf != null) {
+                    bedName = item.bedrijf.bedrijfNaam;
+                }
 
                 $("#toestelTabel").append(
 
                     "<div class='row' id='" + item.id + "'>" +
                     "<div class='col-md-2'>" +
-                    "<p>" + item.serieNummer + "id =" + item.id + "</p>" +
+                    "<p>" + item.serieNummer + "</p>" +
                     "</div>" +
                     "<div class='col-md-3'>" +
                     "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
@@ -115,10 +132,10 @@ function searchItem(str) {
                     "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
                     "<div class='col-md-1'>" +
-                    "<p style='word-break: break-all;'>" + item.supplier.name + "</p>" +
+                    "<p style='word-break: break-all;'>" + supName + "</p>" +
                     "</div>" +
                     "<div class='col-md-1'>" +
-                    "<p style='word-break: break-all;'>" + item.bedrijf.bedrijfNaam + "</p>" +
+                    "<p style='word-break: break-all;'>" + bedName + "</p>" +
                     "</div>" +
                     "<div class='col-md-2 text-center'>" +
                     "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
@@ -147,13 +164,25 @@ function originalState() {
 
             $('#toestelTabel > div').remove();
 
+        
+
             $.each(data, function (i, item) {
+
+                var supName = "";
+                if (item.supplier != null) {
+                    supName = item.supplier.name;
+                }
+                var bedName = "";
+                if (item.bedrijf != null) {
+                    bedName = item.bedrijf.bedrijfNaam;
+                }
+   
 
                 $("#toestelTabel").append(
 
                     "<div class='row' id='" + item.id + "'>" +
                     "<div class='col-md-2'>" +
-                    "<p>" + item.serieNummer + "id =" + item.id + "</p>" +
+                    "<p>" + item.serieNummer + "</p>" +
                     "</div>" +
                     "<div class='col-md-3'>" +
                     "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
@@ -165,10 +194,10 @@ function originalState() {
                     "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
                     "<div class='col-md-1'>" +
-                    "<p style='word-break: break-all;'>" + item.supplier.name + "</p>" +
+                    "<p style='word-break: break-all;'>" + supName + "</p>" +
                     "</div>" +
                     "<div class='col-md-1'>" +
-                    "<p style='word-break: break-all;'>" + item.bedrijf.bedrijfNaam + "</p>" +
+                    "<p style='word-break: break-all;'>" + bedName + "</p>" +
                     "</div>" +
                     "<div class='col-md-2 text-center'>" +
                     "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +

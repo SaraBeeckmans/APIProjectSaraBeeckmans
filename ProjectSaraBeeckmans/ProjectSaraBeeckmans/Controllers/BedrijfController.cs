@@ -28,24 +28,6 @@ namespace ProjectSaraBeeckmans.Controllers
 
 
 
-      
-        //public List<Bedrijf> GetBedrijfs(string naam, string email)
-        //{
-        //    //return hardwareInventaris.Bedrijven.ToList();
-
-        //    IQueryable<Bedrijf> query = hardwareInventaris.Bedrijven;
-
-        //    if (!string.IsNullOrWhiteSpace(naam))
-        //        query = query.Where(d => d.BedrijfNaam == naam);
-        //    if (!string.IsNullOrWhiteSpace(email))
-        //        query = query.Where(d => d.Email == email);
-
-        //    return query.ToList();
-
-        //}
-
-
-
         //FIND
         [Route("find/{str}")]
         [HttpGet]

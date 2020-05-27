@@ -60,13 +60,20 @@ namespace ProjectSaraBeeckmans.Controllers
 
 
         //INSERT
-        [HttpPost]
-        public IActionResult CreateToestel([FromBody] Toestel newToestel)
+        [Route("add")]
+        [HttpPut]
+        public IActionResult CreateToestel([FromQuery] string serieNummer, [FromQuery] string aankoopdatum, [FromQuery] double prijs, [FromQuery] string garantie)
         {
-            hardwareInventaris.Toesellen.Add(newToestel);
+            Toestel toestel = new Toestel();
+            toestel.SerieNummer = serieNummer;
+            toestel.AankoopDatum = aankoopdatum;
+            toestel.Prijs = prijs;
+            toestel.Garantie = garantie;
+            
+            hardwareInventaris.Toesellen.Add(toestel);
             hardwareInventaris.SaveChanges();
             //Stuur een result 201 met het boek als content
-            return Created("", newToestel);
+            return Created("", toestel);
 
         }
 
