@@ -164,7 +164,7 @@ function showExternalApi() {
         data: '$format=json',
         success: function (data) {
             $("#quote").append(
-            "<p>"+ data.slip.advice +"</p>"
+                "<p>Quote of the day: " + data.slip.advice + "</p>"
               
                     )}
     });

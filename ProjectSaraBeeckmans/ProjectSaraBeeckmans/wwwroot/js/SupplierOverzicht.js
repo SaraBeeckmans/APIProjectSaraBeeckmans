@@ -1,6 +1,6 @@
 ﻿
 $(document).ready(function () {
-
+    showExternalApi();
     $.ajax({
         type: "GET",
         url: "/api/v1/supplier/list",
@@ -167,3 +167,17 @@ function getSupplierForToestel() {
     })
 }
 
+function showExternalApi() {
+    $.ajax({
+        url: "https://api.adviceslip.com/advice",
+        dataType: 'json',
+        type: "GET",
+        data: '$format=json',
+        success: function (data) {
+            $("#quote").append(
+                "<p>Quote of the day: " + data.slip.advice + "</p>"
+
+            )
+        }
+    });
+}

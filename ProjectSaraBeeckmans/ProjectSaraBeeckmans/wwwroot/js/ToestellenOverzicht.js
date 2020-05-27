@@ -3,6 +3,9 @@ $(document).ready(function () {
     var urlParams = new URLSearchParams(window.location.search);
     console.log(urlParams.has('id')); 
     console.log(urlParams.get('id'));
+
+    showExternalApi();
+
     if (!urlParams.has('id')) {
         $.ajax({
             type: "GET",
@@ -273,3 +276,17 @@ function showBedrijfToestellen(id) {
 
 
 
+function showExternalApi() {
+    $.ajax({
+        url: "https://api.adviceslip.com/advice",
+        dataType: 'json',
+        type: "GET",
+        data: '$format=json',
+        success: function (data) {
+            $("#quote").append(
+                "<p>Quote of the day: " + data.slip.advice + "</p>"
+
+            )
+        }
+    });
+}
