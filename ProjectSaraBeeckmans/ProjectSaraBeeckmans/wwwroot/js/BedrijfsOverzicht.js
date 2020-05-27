@@ -25,7 +25,7 @@ $(document).ready(function () {
 
                     "<div class= 'row' id='" + item.id +"' >" +
                     "<div class='col-md-3'>" +
-                    "<p>"+ item.bedrijfNaam + "</p>" + 
+                    "<p> <a href='/toestellen.html?id="+ item.id +"'>"+ item.bedrijfNaam + "</a></p>" + 
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.email + "</p>" +
