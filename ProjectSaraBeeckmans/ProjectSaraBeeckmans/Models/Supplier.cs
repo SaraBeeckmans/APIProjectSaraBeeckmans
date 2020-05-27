@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,8 +16,9 @@ namespace ProjectSaraBeeckmans.Models
         public string Email { get; set; }
         public string Adres { get; set; }
         public string Tel { get; set; }
-
-        public ICollection<Toestel> Toestellen { get; set; }
+        
+        [JsonIgnore]
+        public virtual IList<Toestel> Toestellen { get; set; }
 
     }
 }

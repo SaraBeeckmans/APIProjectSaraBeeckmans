@@ -39,8 +39,11 @@ $(document).ready(function () {
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
-                    "<div class='col-md-2'>" +
-                    "<p style='word-break: break-all;'>" + item.supplierid + "</p>" +
+                    "<div class='col-md-1'>" +
+                    "<p style='word-break: break-all;'>" + item.supplier.name + "</p>" +
+                    "</div>" +
+                    "<div class='col-md-1'>" +
+                    "<p style='word-break: break-all;'>" + item.bedrijf.bedrijfNaam + "</p>" +
                     "</div>" +
                     "<div class='col-md-2 text-center'>" +
                     "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +

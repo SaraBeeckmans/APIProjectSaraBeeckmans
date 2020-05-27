@@ -21,23 +21,7 @@ namespace ProjectSaraBeeckmans.Controllers
         public IActionResult GetToestellen()
         {
 
-            //IQueryable<Toestel> query = hardwareInventaris.Toesellen;
-
-
-            //if (!string.IsNullOrWhiteSpace(serienummer))
-            //    query = query.Where(d => d.SerieNummer == serienummer);
-            //if (!string.IsNullOrWhiteSpace(aankoopdatum))
-            //    query = query.Where(d => d.AankoopDatum == aankoopdatum);
-
-            //return query.ToList();
-
-            //var toestellen = hardwareInventaris.Toesellen;
-            //foreach(Toestel d in toestellen)
-            //{
-            //    hardwareInventaris.Entry(d).Collection(p => p.Supplier).Load();
-            //    foreach(Supplier c in d.toe)
-
-            //}
+           
 
             var toestellen = hardwareInventaris.Toesellen.Include(d => d.Bedrijf).Include(s => s.Supplier);
             return Ok(toestellen);
@@ -46,16 +30,6 @@ namespace ProjectSaraBeeckmans.Controllers
 
         }
 
-        //    [Route("list")]
-        //    [HttpGet]
-        //    public IActionResult GetToestellen(int id)
-        //{
-        //    var toestel = hardwareInventaris.Toesellen.Include(d => d.Supplier).SingleOrDefault(d => d.id == id);
-        //    if (toestel == null)
-        //        return NotFound();
-
-        //    return Ok(toestel);
-        //}
 
         //FIND
         [Route("find/{str}")]

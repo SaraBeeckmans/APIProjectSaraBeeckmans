@@ -21,10 +21,14 @@ namespace ProjectSaraBeeckmans.Models
         public string Garantie { get; set; }
         public double Prijs { get; set; }
 
+        public int BedrijfId { get; set; }
+        public int SupplierId { get; set; }
+
+
         public Bedrijf Bedrijf { get; set; }
         public Supplier Supplier { get; set; }
 
 
-        public ICollection<ToestelCategorie> ToestelCategories { get; set; }
+        public virtual IList<ToestelCategorie> ToestelCategories { get; set; }
     }
 }
