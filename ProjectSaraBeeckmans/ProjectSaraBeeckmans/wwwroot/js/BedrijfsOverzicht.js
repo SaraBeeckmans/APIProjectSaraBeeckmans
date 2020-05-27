@@ -1,6 +1,8 @@
 ﻿
 $(document).ready(function () {
 
+    showExternalApi();
+
     $.ajax({
         type: "GET",
         url: "/api/v1/bedrijf/list",
@@ -8,6 +10,10 @@ $(document).ready(function () {
         dataType: 'json',
         success: function (data) {
             console.log(data);
+            
+
+           
+
             $("#find").append(
 
                 
@@ -150,4 +156,16 @@ function originalState() {
 };
 
 
-
+function showExternalApi() {
+    $.ajax({
+        url: "https://api.adviceslip.com/advice",
+        dataType: 'json',
+            type: "GET",
+        data: '$format=json',
+        success: function (data) {
+            $("#quote").append(
+            "<p>"+ data.slip.advice +"</p>"
+              
+                    )}
+    });
+}

@@ -149,5 +149,21 @@ function originalState() {
     })
 };
 
+function getSupplierForToestel() {
+    $.ajax({
+        type: "GET",
+        url: "/api/v1/supplier/list",
+        data: '$format=json',
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+           
+            $.each(data, function (i, item) {
+                 
+              
+            });
+        }
 
+    })
+}
 
