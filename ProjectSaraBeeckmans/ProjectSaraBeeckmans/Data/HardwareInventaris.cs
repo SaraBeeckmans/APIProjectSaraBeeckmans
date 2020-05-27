@@ -17,6 +17,22 @@ namespace ProjectSaraBeeckmans.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //relatie toestel supplier
+            modelBuilder.Entity<Supplier>()
+                .HasMany(c => c.Toestellen)
+                 .WithOne(e => e.Supplier);
+            modelBuilder.Entity<Toestel>()
+                .HasOne(e => e.Supplier)
+                .WithMany(c => c.Toestellen);
+
+            modelBuilder.Entity<Bedrijf>()
+                .HasMany(c => c.Toestellen)
+                 .WithOne(e => e.Bedrijf);
+            modelBuilder.Entity<Toestel>()
+                .HasOne(e => e.Bedrijf)
+                .WithMany(c => c.Toestellen);
+
+            //Manytomany
             modelBuilder.Entity<ToestelCategorie>()
                 .HasKey(bc => new { bc.ToestelId, bc.CategorieId });
             modelBuilder.Entity<ToestelCategorie>()
@@ -31,8 +47,8 @@ namespace ProjectSaraBeeckmans.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = hwinventaris; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
-            optionsBuilder.UseMySql("server=localhost;database=hwinventaris;user=webapi;password=webapi;");
+            optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = hwinventaris; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+           // optionsBuilder.UseMySql("server=localhost;database=hwinventaris;user=webapi;password=webapi;");
         }
     }
 }

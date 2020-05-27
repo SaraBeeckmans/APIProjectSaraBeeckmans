@@ -29,6 +29,7 @@ namespace ProjectSaraBeeckmans
             };
             hardwareInventaris.Bedrijven.Add(bedrijfRelationsComp);
             var bedrijf = hardwareInventaris.Bedrijven.Where(n => n.BedrijfNaam.Contains("voorb")).First();
+            var supplierToevoegen = hardwareInventaris.Suppliers.Where(n => n.Name.Contains("BenD")).First();
 
             Toestel laptop = new Toestel()
             {
@@ -36,7 +37,8 @@ namespace ProjectSaraBeeckmans
                 AankoopDatum = "10/2/2020",
                 Garantie = "2 jaar",
                 Prijs = 1500,
-                Bedrijf = bedrijf
+                Bedrijf = bedrijf,
+                Supplier = supplierToevoegen
 
 
 

@@ -18,25 +18,31 @@ namespace ProjectSaraBeeckmans.Controllers
         //SELECT SQL
         [Route("list")]
         [HttpGet]
-        public List<Toestel> GetToestellen(string serienummer, string aankoopdatum)
+        public IActionResult GetToestellen()
         {
-            //return hardwareInventaris.Bedrijven.ToList();
 
-            IQueryable<Toestel> query = hardwareInventaris.Toesellen;
-
-            //var toestel = hardwareInventaris.Toesellen.Include(d => d.Supplier);
-            //if (toestel == null)
-            //    return NotFound();
-
-            //return Ok(toestel);
+            //IQueryable<Toestel> query = hardwareInventaris.Toesellen;
 
 
-            if (!string.IsNullOrWhiteSpace(serienummer))
-                query = query.Where(d => d.SerieNummer == serienummer);
-            if (!string.IsNullOrWhiteSpace(aankoopdatum))
-                query = query.Where(d => d.AankoopDatum == aankoopdatum);
+            //if (!string.IsNullOrWhiteSpace(serienummer))
+            //    query = query.Where(d => d.SerieNummer == serienummer);
+            //if (!string.IsNullOrWhiteSpace(aankoopdatum))
+            //    query = query.Where(d => d.AankoopDatum == aankoopdatum);
 
-            return query.ToList();
+            //return query.ToList();
+
+            //var toestellen = hardwareInventaris.Toesellen;
+            //foreach(Toestel d in toestellen)
+            //{
+            //    hardwareInventaris.Entry(d).Collection(p => p.Supplier).Load();
+            //    foreach(Supplier c in d.toe)
+
+            //}
+
+            var toestellen = hardwareInventaris.Toesellen.Include(d => d.Bedrijf).Include(s => s.Supplier);
+            return Ok(toestellen);
+
+
 
         }
 
