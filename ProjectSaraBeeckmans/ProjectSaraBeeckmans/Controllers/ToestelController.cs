@@ -30,6 +30,17 @@ namespace ProjectSaraBeeckmans.Controllers
 
         }
 
+        [Route("bedrijf/{id}")]
+        [HttpGet]
+        public IActionResult GetAllToestellen(int id)
+        {
+            var toestellen = hardwareInventaris.Toesellen.Where(d => d.BedrijfId == id).Include(b => b.Bedrijf).Include(s => s.Supplier);
+            if (toestellen == null)
+                return NotFound();
+            return Ok(toestellen);
+        }
+
+
 
         //FIND
         [Route("find/{str}")]

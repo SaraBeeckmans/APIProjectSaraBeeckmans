@@ -21,8 +21,8 @@ namespace ProjectSaraBeeckmans.Models
         public string Garantie { get; set; }
         public double Prijs { get; set; }
 
-        public int BedrijfId { get; set; }
-        public int SupplierId { get; set; }
+        public int? BedrijfId { get; set; }
+        public int? SupplierId { get; set; }
 
 
         public Bedrijf Bedrijf { get; set; }

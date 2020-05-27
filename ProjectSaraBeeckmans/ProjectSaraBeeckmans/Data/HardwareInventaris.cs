@@ -25,6 +25,7 @@ namespace ProjectSaraBeeckmans.Data
                 .HasOne(e => e.Supplier)
                 .WithMany(c => c.Toestellen);
 
+            //Relatie toestel bedrijf
             modelBuilder.Entity<Bedrijf>()
                 .HasMany(c => c.Toestellen)
                  .WithOne(e => e.Bedrijf);
@@ -32,7 +33,7 @@ namespace ProjectSaraBeeckmans.Data
                 .HasOne(e => e.Bedrijf)
                 .WithMany(c => c.Toestellen);
 
-            //Manytomany
+            //Manytomany relatie
             modelBuilder.Entity<ToestelCategorie>()
                 .HasKey(bc => new { bc.ToestelId, bc.CategorieId });
             modelBuilder.Entity<ToestelCategorie>()

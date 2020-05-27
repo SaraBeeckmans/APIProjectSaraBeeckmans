@@ -17,20 +17,34 @@ namespace ProjectSaraBeeckmans.Controllers
         //SELECT SQL
         [Route("list")]
         [HttpGet]
-        public List<Bedrijf> GetBedrijfs(string naam, string email)
+        public IActionResult GetBedrijfs()
         {
-            //return hardwareInventaris.Bedrijven.ToList();
 
-            IQueryable<Bedrijf> query = hardwareInventaris.Bedrijven;
+            var bedrijven = hardwareInventaris.Bedrijven;
+            return Ok(bedrijven);
 
-            if (!string.IsNullOrWhiteSpace(naam))
-                query = query.Where(d => d.BedrijfNaam == naam);
-            if (!string.IsNullOrWhiteSpace(email))
-                query = query.Where(d => d.Email == email);
 
-            return query.ToList();
-          
         }
+
+
+
+      
+        //public List<Bedrijf> GetBedrijfs(string naam, string email)
+        //{
+        //    //return hardwareInventaris.Bedrijven.ToList();
+
+        //    IQueryable<Bedrijf> query = hardwareInventaris.Bedrijven;
+
+        //    if (!string.IsNullOrWhiteSpace(naam))
+        //        query = query.Where(d => d.BedrijfNaam == naam);
+        //    if (!string.IsNullOrWhiteSpace(email))
+        //        query = query.Where(d => d.Email == email);
+
+        //    return query.ToList();
+
+        //}
+
+
 
         //FIND
         [Route("find/{str}")]
