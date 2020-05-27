@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ProjectSaraBeeckmans.Data;
 using ProjectSaraBeeckmans.Models;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.AspNetCore.Hosting.Internal.HostingApplication;
 
 namespace ProjectSaraBeeckmans.Controllers
 {
@@ -23,6 +24,13 @@ namespace ProjectSaraBeeckmans.Controllers
 
             IQueryable<Toestel> query = hardwareInventaris.Toesellen;
 
+            //var toestel = hardwareInventaris.Toesellen.Include(d => d.Supplier);
+            //if (toestel == null)
+            //    return NotFound();
+
+            //return Ok(toestel);
+
+
             if (!string.IsNullOrWhiteSpace(serienummer))
                 query = query.Where(d => d.SerieNummer == serienummer);
             if (!string.IsNullOrWhiteSpace(aankoopdatum))
@@ -31,6 +39,17 @@ namespace ProjectSaraBeeckmans.Controllers
             return query.ToList();
 
         }
+
+        //    [Route("list")]
+        //    [HttpGet]
+        //    public IActionResult GetToestellen(int id)
+        //{
+        //    var toestel = hardwareInventaris.Toesellen.Include(d => d.Supplier).SingleOrDefault(d => d.id == id);
+        //    if (toestel == null)
+        //        return NotFound();
+
+        //    return Ok(toestel);
+        //}
 
         //FIND
         [Route("find/{str}")]

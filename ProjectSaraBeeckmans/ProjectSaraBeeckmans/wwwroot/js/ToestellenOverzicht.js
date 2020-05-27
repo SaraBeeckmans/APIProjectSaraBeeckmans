@@ -20,28 +20,35 @@ $(document).ready(function () {
 
             
             $.each(data, function (i, item) {
-                console.log("aaé");
+                console.log(data);
+                console.log(item.bedrijfId);
                 $("#toestelTabel").append(
                     
+
+                    
                     "<div class='row' id='" + item.id + "'>" +
-                    "<div class='col-md-3'>" +
+                    "<div class='col-md-2'>" +
                     "<p>" + item.serieNummer + "id =" + item.id + "</p>" +
                     "</div>" +
                     "<div class='col-md-3'>" +
                     "<p style='word-break: break-all;'>" + item.aankoopDatum + "</p>" +
                     "</div>" +
-                    "<div class='col-md-2'>" +
+                    "<div class='col-md-1'>" +
                     "<p>" + item.prijs + "</p>" +
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.garantie + "</p>" +
                     "</div>" +
+                    "<div class='col-md-2'>" +
+                    "<p style='word-break: break-all;'>" + item.supplierid + "</p>" +
+                    "</div>" +
                     "<div class='col-md-2 text-center'>" +
                     "<button type='button' class='btn btn-outline-danger btn-sm' onclick = 'verwijderItem(" + item.id + ")' > Verwijderen</button > " +
-                    "<p style='word-break: break-all;'>" + item.bedrijf + "</p>" +
+                    
                     "</div>" +
 
                     "</div >"
+                    
                 )
             });
         }
