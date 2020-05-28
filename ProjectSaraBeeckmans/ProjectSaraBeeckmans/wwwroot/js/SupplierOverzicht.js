@@ -25,7 +25,7 @@ $(document).ready(function () {
 
                     "<div class= 'row' id='" + item.id + "' >" +
                     "<div class='col-md-3'>" +
-                    "<p>" + item.name + " id = " + item.id + "</p>" +
+                    "<p>" + item.name + "</p>" +
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.email + "</p>" +
@@ -83,7 +83,7 @@ function searchItem(str) {
 
                     "<div class= 'row' id='" + item.id + "' >" +
                     "<div class='col-md-3'>" +
-                    "<p>" + item.name + " id = " + item.id + "</p>" +
+                    "<p>" + item.name + "</p>" +
                     "</div>" +
                     "<div class='col-md-2'>" +
                     "<p style='word-break: break-all;'>" + item.email + "</p>" +
@@ -149,23 +149,23 @@ function originalState() {
     })
 };
 
-function getSupplierForToestel() {
-    $.ajax({
-        type: "GET",
-        url: "/api/v1/supplier/list",
-        data: '$format=json',
-        dataType: 'json',
-        success: function (data) {
-            console.log(data);
+//function getSupplierForToestel() {
+//    $.ajax({
+//        type: "GET",
+//        url: "/api/v1/supplier/list",
+//        data: '$format=json',
+//        dataType: 'json',
+//        success: function (data) {
+//            console.log(data);
            
-            $.each(data, function (i, item) {
+//            $.each(data, function (i, item) {
                  
               
-            });
-        }
+//            });
+//        }
 
-    })
-}
+//    })
+//}
 
 function showExternalApi() {
     $.ajax({
