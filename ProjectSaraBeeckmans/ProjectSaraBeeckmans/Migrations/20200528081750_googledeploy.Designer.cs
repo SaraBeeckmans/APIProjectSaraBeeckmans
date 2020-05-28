@@ -9,8 +9,8 @@ using ProjectSaraBeeckmans.Data;
 namespace ProjectSaraBeeckmans.Migrations
 {
     [DbContext(typeof(HardwareInventaris))]
-    [Migration("20200527163021_mysql")]
-    partial class mysql
+    [Migration("20200528081750_googledeploy")]
+    partial class googledeploy
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

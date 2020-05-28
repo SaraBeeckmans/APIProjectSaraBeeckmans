@@ -49,7 +49,7 @@ namespace ProjectSaraBeeckmans.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //optionsBuilder.UseSqlServer("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = hwinventaris; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
-            optionsBuilder.UseMySql("server=localhost;database=hwinventaris;user=webapi;password=webapi;");
+            optionsBuilder.UseMySql("server=35.240.41.102;database=hwinventaris;user=webapi;password=Cycl0Cr0ss;");
         }
     }
 }
