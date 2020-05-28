@@ -35,6 +35,7 @@ $(document).ready(function () {
                     if (item.bedrijf != null) {
                         bedName = item.bedrijf.bedrijfNaam;
                     }
+
                     $("#toestelTabel").append(
 
 
@@ -107,6 +108,7 @@ function searchItem(str) {
         success: function (data) {
             
             $('#toestelTabel > div').remove();
+            $("#toestelTabel").append(getToestelHeaders());
 
             $.each(data, function (i, item) {
 
@@ -163,11 +165,10 @@ function originalState() {
         data: '$format=json',
         dataType: 'json',
         success: function (data) {
-           
+
 
             $('#toestelTabel > div').remove();
-
-        
+            $("#toestelTabel").append(getToestelHeaders());
 
             $.each(data, function (i, item) {
 
@@ -223,7 +224,7 @@ function showBedrijfToestellen(id) {
         data: '$format=json',
         dataType: 'json',
         success: function (data) {
-            //$('#toestelTabel > div').remove();
+
             $("#find").append(
 
                 "<input id = 'myInput' type='text' class='form-control' placeholder='Search' aria-describedby='button-addon4'>" +
@@ -290,3 +291,33 @@ function showExternalApi() {
         }
     });
 }
+
+function getToestelHeaders() {
+    var resultstring = "<div id='toestelTabel' class='container'>" +
+                            "<div class='row'>" +
+                                "<div class='col-md-2'>" +
+                                    "<h4>SerieNummer</h4>" +
+                                "</div> " +
+        "<div class='col-md-3'> " +
+        "<h4> Aankoopdatum</h4> " +
+        "    </div> " +
+        "<div class='col-md-1'> " +
+        "<h4 > Prijs</h4> " +
+        "    </div> " +
+        "<div class='col-md-2'> " +
+        "<h4 > Garantie</h4> " +
+        "    </div> " +
+        "<div class='col-md-1'> " +
+        "<h4> Supplier</h4> " +
+        "    </div> " +
+        "<div class='col-md-1'> " +
+        "<h4> Bedrijf</h4> " +
+        "    </div> " +
+        "<div class='col-md-2'> " +
+        "<h4> Aanpassingen</h4> " +
+        "    </div>" +
+        "</div>" +
+        "    </div>";
+    return resultstring;
+}
+

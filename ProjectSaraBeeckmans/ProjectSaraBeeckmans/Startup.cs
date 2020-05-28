@@ -37,11 +37,7 @@ namespace ProjectSaraBeeckmans
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            //{
-            //    options.Authority = "https://accounts.google.com";
-            //    options.Audience = "---noteer hier je client id---"; //Diegene waarvoor get toaken bestemt is
-            //});
+  
 
             //services.AddAuthentication().AddGoogle(options =>
             //{

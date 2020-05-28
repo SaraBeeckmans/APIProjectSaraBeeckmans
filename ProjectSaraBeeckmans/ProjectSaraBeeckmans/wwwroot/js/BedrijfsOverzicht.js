@@ -82,6 +82,7 @@ function searchItem(str) {
         dataType: 'json',
         success: function (data) {
             $('#bedrijfstabel > div').remove(); 
+            $("#bedrijfstabel").append(getBedrijfHeaders());
 
             $.each(data, function (i, item) {
 
@@ -123,7 +124,7 @@ function originalState() {
         success: function (data) {
 
             $('#bedrijfstabel > div').remove();
-
+            $("#bedrijfstabel").append(getBedrijfHeaders());
             console.log(data);
 
             $.each(data, function (i, item) {
@@ -168,4 +169,28 @@ function showExternalApi() {
               
                     )}
     });
+}
+
+
+function getBedrijfHeaders() {
+    var resultstring = "<div id='bedrijfstabel' class='container'>" +
+        "<div class='row'>" +
+        "<div class='col-md-3'>" +
+        "<h2>Naam</h2>" +
+        "</div> " +
+        "<div class='col-md-2'> " +
+        "<h2> Email</h2> " +
+        "    </div> " +
+        "<div class='col-md-3'> " +
+        "<h2> Adres</h2> " +
+        "    </div> " +
+        "<div class='col-md-2'> " +
+        "<h2>Tel</h2> " +
+        "    </div> " +
+        "<div class='col-md-2'> " +
+        "<h2> Aanpassingen</h2> " +
+        "    </div>" +
+        "</div>" +
+        "    </div>";
+    return resultstring;
 }
