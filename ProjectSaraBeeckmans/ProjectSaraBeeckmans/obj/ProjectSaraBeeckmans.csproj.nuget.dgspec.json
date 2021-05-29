@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sara\\Desktop\\AP\\Trajectschijf 3\\Could API\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj": {}
+    "C:\\AP\\OLDAPI\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sara\\Desktop\\AP\\Trajectschijf 3\\Could API\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj": {
+    "C:\\AP\\OLDAPI\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sara\\Desktop\\AP\\Trajectschijf 3\\Could API\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj",
+        "projectUniqueName": "C:\\AP\\OLDAPI\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj",
         "projectName": "ProjectSaraBeeckmans",
-        "projectPath": "C:\\Users\\sara\\Desktop\\AP\\Trajectschijf 3\\Could API\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj",
-        "packagesPath": "C:\\Users\\sara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sara\\Desktop\\AP\\Trajectschijf 3\\Could API\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\obj\\",
+        "projectPath": "C:\\AP\\OLDAPI\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans.csproj",
+        "packagesPath": "C:\\Users\\sara-ap\\.nuget\\packages\\",
+        "outputPath": "C:\\AP\\OLDAPI\\ProjectSaraBeeckmans\\ProjectSaraBeeckmans\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\sara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sara-ap\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp2.1": {
+            "targetAlias": "netcoreapp2.1",
             "projectReferences": {}
           }
         },
@@ -40,12 +38,17 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
+          "targetAlias": "netcoreapp2.1",
           "dependencies": {
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.1, )",
               "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Owin": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
@@ -80,6 +83,18 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "Microsoft.Owin.Security.Cookies": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.Owin.Security.Google": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
+            "Microsoft.Owin.Security.OAuth": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[2.1.9, )"
@@ -103,7 +118,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
